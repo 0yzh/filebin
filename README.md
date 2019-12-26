@@ -3,7 +3,7 @@ Image hosting for your own server
 
 # Documentation WIP
 
-### Install App
+### Install app
 ```shell
 npm install
 ```
