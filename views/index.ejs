@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="../public/css/app.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <section id="content">
+      <form method="post" enctype="multipart/form-data" action="/upload">
+        <div class="file-upload">
+          <div class="file-select">
+            <div class="file-select-button" id="fileName">Choose File</div>
+            <div class="file-select-name" id="noFile">No file chosen...</div>
+            <input type="file" name="file" id="chooseFile" />
+          </div>
+        </div>
+        <input type="submit" value="Submit" id="submit" />
+      </form>
+
+      <br /><br />
+      <div id="uploaded">
+        <% data.forEach(image => { %> <a href=/api/images/<%= image %> ><img src=/api/images/<%= image %> alt=<%=
+        image %> title=<%= image %> /></a> <% }); %>
+      </div>
+      <br /><br />
+      <!--<a href="/delete/factss.gif">Remove</a>-->
+    </section>
+
+    <script src="../public/js/script.js"></script>
+  </body>
+</html>
