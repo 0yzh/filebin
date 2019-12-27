@@ -31,7 +31,7 @@ const handleError = (err, res) => {
 app.get('/', async (req, res) => {
   const fp = path.join(__dirname, `./public/images/`);
   // check for directory contents and pass contents as data to template( index.ejs )
-  fs.readdir(fp, function(err, contents) {
+  fs.readdir(fp, (err, contents) => {
     // unexpected error handler
     if (err) return handleError(err, res);
     console.log(contents);
