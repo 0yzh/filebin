@@ -104,6 +104,6 @@ app.get('/test', (req, res) => {
   res.send('TEST route');
 });
 
-app.listen(app.get('port'), function() {
+app.listen(app.get('port'), () => {
   console.log(`Node app is running at localhost: ${app.get('port')}`);
 });
