@@ -35,7 +35,7 @@ app.get('/', async (req, res) => {
     // unexpected error handler
     if (err) return handleError(err, res);
     console.log(contents);
-    res.render('index', { data: contents });
+    return res.render('index', { data: contents });
   });
 });
 
@@ -66,14 +66,14 @@ app.post('/upload', upload.single('file'), (req, res) => {
         if (err) return handleError(err, res);
 
         console.log('File uploaded!');
-        res.redirect(`/api/images/${req.file.originalname}`);
+        return res.redirect(`/api/images/${req.file.originalname}`);
       });
     } else {
       fs.unlink(filePath, err => {
         // unexpected error handler
         if (err) return handleError(err, res);
 
-        res
+        return res
           .status(403)
           .contentType('text/plain')
           .end(
