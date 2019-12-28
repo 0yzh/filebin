@@ -28,7 +28,7 @@ const handleError = (err, res) => {
 };
 
 // put image files in a directory named "public/images"
-app.get('/', async (req, res) => {
+app.get('/', (req, res) => {
   const fp = path.join(__dirname, `./public/images/`);
   // check for directory contents and pass contents as data to template( index.ejs )
   fs.readdir(fp, (err, contents) => {
@@ -95,7 +95,7 @@ app.get('/delete/:image', async (req, res) => {
   await fs.unlink(fp, err => {
     // unexpected error handler
     if (err) return handleError(err, res);
-    console.log(`${req.params.image} was removed from the server.`);
+    return console.log(`${req.params.image} was removed from the server.`);
   });
   res.redirect('/');
 });
