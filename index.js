@@ -89,6 +89,7 @@ app.post('/upload', upload.single('file'), (req, res) => {
   }
 });
 
+// Reminder: need to implement delete function
 app.get('/delete/:image', async (req, res) => {
   console.log(req.params.image);
   const fp = path.join(__dirname, `./public/images/${req.params.image}`);
